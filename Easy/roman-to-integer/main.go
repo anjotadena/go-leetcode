@@ -1,9 +1,19 @@
-func romanToInt(s string) int {
+package romantointeger
+
+func main(s string) int {
 	if s == "" {
 		return 0
 	}
 
-	symbols := make(map[string]int)
+	symbols := map[string]int{
+		"I": 1,
+		"V": 5,
+		"X": 10,
+		"L": 50,
+		"C": 100,
+		"D": 500,
+		"M": 1000,
+	}
 
 	symbols["I"] = 1
 	symbols["V"] = 5
