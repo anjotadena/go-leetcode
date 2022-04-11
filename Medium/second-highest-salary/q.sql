@@ -1,5 +1,5 @@
 SELECT 
-    MAX(salary) as T1
+    MAX(salary) as SecondHighestSalary
 FROM
     Employee
 WHERE
