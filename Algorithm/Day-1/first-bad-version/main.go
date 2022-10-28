@@ -9,29 +9,27 @@ import "fmt"
  *			          false if current version is good
  * func isBadVersion(version int) bool;
  */
-
+// this is just a dummy
+// this function already defined in leetcode
+// for local purpose we mock it as true
 func isBadVersion(n int) bool {
 	return true
 }
 
 func firstBadVersion(n int) int {
-	low := 1
-	high := n
-	result := n
-	mid := n / 2
+	var low, high, median = 1, n, n / 2
 
-	for low <= high {
-		mid = high + ((low - high) / 2)
+	for low < high {
+		median = low + (high-low)/2
 
-		if isBadVersion(mid) {
-			result = mid
-			high = mid - 1
+		if isBadVersion(median) {
+			high = median
 		} else {
-			low = mid + 1
+			low = median + 1
 		}
 	}
 
-	return result
+	return low
 }
 
 func main() {
