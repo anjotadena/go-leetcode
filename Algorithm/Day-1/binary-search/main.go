@@ -3,21 +3,20 @@ package main
 import "fmt"
 
 func search(nums []int, target int) int {
-	l := 0
-	r := len(nums) - 1
+	var low, high = 0, len(nums) - 1
+	median := 0
 
-	for l < r {
-		// add l to avoid overflowing
-		m := (l + (r-l)/2)
+	for low <= high {
+		median = low + (high-low)/2
 
-		if nums[m] == target {
-			return m
+		if nums[median] == target {
+			return median
 		}
 
-		if target < nums[m] {
-			r = m - 1
+		if nums[median] < target {
+			low = median + 1
 		} else {
-			l = m + 1
+			high = median - 1
 		}
 	}
 
